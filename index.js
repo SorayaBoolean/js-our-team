@@ -7,7 +7,7 @@
 //Bonus1: Trasformare la stringa foto in una immagine effettiva
 //Bonus2: Organizzare i singoli membri in card/schede
 
-//Creo Array "teamComponents" composto al suo interno da Oggetti:
+//1.Creo Array "teamComponents" composto al suo interno da Oggetti:
 
 const teamComponents = [
 
@@ -38,7 +38,65 @@ const teamComponents = [
 
     {'Nome': 'Barbara Ramos',
      'Ruolo': 'Graphic Designer',
-     'Foto' : 'barbara-ramos-graphic-designer.jpg'
+     'Foto' : 'barbara-ramos-graphic-designer.jpg',
     }
 
 ];
+
+let object = {'Nome': 'Barbara Ramos',
+'Ruolo': 'Graphic Designer',
+'Foto' : 'barbara-ramos-graphic-designer.jpg'
+}
+
+for(let chiave in object) {
+    console.log(chiave);
+    console.log(object[chiave]);
+}
+
+//2.Stampare su console le informazioni di nome, ruolo e la stringa della foto:
+
+console.log (teamComponents) ;
+
+//3.Stampare le stesse informazioni su DOM sottoforma di stringhe:
+
+
+for (let i = 0; i < teamComponents.length; i++) {
+
+    console.log (teamComponents[i]);  //stampo i singoli oggetti nell' Array
+    let cards_containerDOM = document.querySelector ('.cards_container');
+
+    for ( let key in teamComponents[i]) {
+
+        console.log(key, teamComponents[i][key])
+        cards_containerDOM.innerHTML += '<div>' + key + ':' + teamComponents[i][key] + '</div>' 
+    }
+
+    cards_containerDOM.innerHTML += '<img src="img/' + teamComponents[i].Foto +  ' " />'
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Funzioni/////////////////////////////////////
+//function createGridCards () {
+
+    //const currentCard = Document.createElement ('div');
+    //currentCard.classList.add ('card')
+    //return currentCard
+//}
